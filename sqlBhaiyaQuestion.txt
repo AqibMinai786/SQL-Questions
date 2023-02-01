@@ -1,0 +1,25 @@
+1) Creating Department Table:-
+ 
+   create table department (dept_id int(11) primary key, dept_name varchar(30) not null);
+
+2) Creating Employee Table:-
+
+   create table employee (emp_id int(11) primary key, emp_name varchar(22) not null, emp_salary int not null, dept_id int(11),
+   foreign key (dept_id) references department(dept_id));
+
+3) Inserting values in department Table:-
+
+   insert into department values (101,"ADMINISTRATION"),(102,"CONSTRUCTION"),(103,"LIBRARY"),(104,"PROCUREMENT"),
+   (105,"RESEARCH AND DEVELOPMENT"),(106,"HUMAN RESOURCES");
+
+4) Inserting values in employee Table:-
+
+    insert into employee (emp_id, emp_name, emp_salary, dept_id) values (001, "Amit Kumar", 105000, 102), (002, "Vinay Mishra", 65000, 102), 
+    (003, "Anurag Singh", 112000, 102), (004, "Nitin Mishra", 35000, 103), (005, "Surbhi Srivastava", 72000, 103), 
+    (006, "Rahul Mahajan", 68000, 103), (007, "Amit Sharma", 40000, 104), (008, "Fakrul Ahmad", 75000, 104), 
+    (009, "Adnan Sheikh", 98000, 104), (010, "Lionard", 160000, 105), (011, "Akbar Ali", 180000, 105), (012, "Neha Gautam", 240000, 105),
+    (013, "Versha", 92000, 106), (014, "Aneemesh Jain", 120000, 106), (015, "Ruchna Mukherji", 116000, 106);
+
+5) To find employee with greatest salary in all department:-
+
+    select * from employee as e, department as d where e.dept_id = d.dept_id order by emp_salary desc limit 1;
